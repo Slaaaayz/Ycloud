@@ -1,0 +1,28 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubunt u-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          echo "${{ secrets.SSH_PRIVATE }}" | base64 -d > id_rsa
+          chmod 600 id_rsa
+
+      - name: Deploy via SSH
+        run: |
+          ssh -o "StrictHostKeyChecking=no" -i id_rsa -p 22152 slayz@82.67.64.82 << 'EOF'
+            cd /var/www/Ycloud
+            git fetch
+            git merge origin/main
+            sudo systemctl restart runmain
+          EOF

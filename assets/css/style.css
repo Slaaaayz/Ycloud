@@ -1,0 +1,193 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+}
+
+header {
+    background-color: #000000;
+    box-shadow: 0 2px 5px rgba(131, 223, 105, 0.57);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    border-radius: 25px 25px 25px 25px;
+    margin: 0 20px;
+    width: calc(100% - 40px);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+}
+
+.wave-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 50%;
+    pointer-events: none;
+}
+
+.wave-image {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+}
+
+.center-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.round-button {
+    background-color: #000000;
+    border: 6px solid #83df69;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.round-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(131, 223, 105, 0.57);
+}
+
+.button-icon {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+}
+
+.browse-button {
+    background-color: #000000;
+    border: 3px solid #83df69;
+    border-radius: 25px;
+    padding: 12px 30px;
+    color: #83df69;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 150px;
+}
+
+.browse-button::before {
+    content: 'Parcourir';
+}
+
+/* Cache le texte par défaut de l'input file */
+input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.browse-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(131, 223, 105, 0.57);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .logo img {
+        height: 70px;
+    }
+
+    .round-button {
+        width: 200px;
+        height: 200px;
+    }
+
+    .button-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .wave-container {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        margin: 0 10px;
+        width: calc(100% - 20px);
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .round-button {
+        width: 150px;
+        height: 150px;
+        border-width: 4px;
+    }
+
+    .button-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .browse-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+.browse-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.file-name {
+    color: #83df69;
+    font-size: 16px;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+/* On peut retirer margin-top du browse-button puisqu'il est maintenant géré par le conteneur */
+.browse-button {
+    background-color: #000000;
+    border: 3px solid #83df69;
+    border-radius: 25px;
+    padding: 12px 30px;
+    color: #83df69;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 150px;
+}

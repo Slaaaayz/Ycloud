@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ycloud</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/images/Ycloud.png">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo">
+            <img src="assets/images/Ycloud_remove.png" alt="Ycloud Logo" oncontextmenu="return false;" draggable="false">
+        </div>
+    </nav>
+</header>
+<div class="center-container">
+    <form action="upload.php"method="POST" enctype="multipart/form-data">
+        <button class="round-button">
+            <img src="assets/images/icon.png" alt="Icon" class="button-icon">
+        </button>
+        <div class="browse-container">
+            <label for="file" class="browse-button"></label>
+            <input type="file" name="file" id="file" required>
+            <span id="file-name" class="file-name"></span>
+        </div>
+    </form>
+</div>
+<div class="wave-container">
+    <img src="assets/images/wave.png" alt="Wave decoration" class="wave-image">
+</div>
+<script>
+    document.getElementById('file').addEventListener('change', function() {
+        const fileName = this.files[0] ? this.files[0].name : '';
+        document.getElementById('file-name').textContent = fileName;
+    });
+</script>
+</body>
+</html>
